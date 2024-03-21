@@ -1,0 +1,32 @@
+
+
+Função insertSort:
+A função insert Sort considera que o primeiro valor está ordenado e o restante não.
+Faz a comparação do elemento onde está com o elemento seguinte, se for maior troca.
+Se não for maior compara o segunto elemento o outro elemento depois.
+Quando chega ao fim da lista faz novamente a verificação entre dois novamente até estar totalmente ordenada.
+
+
+Função Bubble Sort:
+A função Bubble Sort começa a comparar o primeiro elemento do array com o segundo, o segundo com o terceiro, e assim por diante, até o penúltimo elemento com o último.
+Se o primeiro elemento da comparação for maior do que o elemento seguinte, são trocados de posições.
+Isso faz com que os elementos maiores subam no index e os menores desçam.
+Após a primeira iteração, o maior elemento estará na posição correta (o final da lista). Na segunda iteração, o segundo maior elemento estará na segunda última posição, e assim por diante.
+O processo é repetido até que não seja necessário fazer nenhum loop.
+
+Função Merge Sort:
+A primeira fase do Merge Sort é dividir a lista não ordenada em sublistas menores.
+Isso é feito consecutivamente até que cada sublista contenha apenas um elemento.
+Isso é fundamental pois sublistas com apenas um elemento são consideradas ordenadas por si mesmo.
+Após dividir a lista em sublistas menores, o sistema Merge Sort começa a combinar essas sublistas em listas maiores e ordenadas.
+Ele começa com a combinação de sublistas de apenas um elemento e combina sublistas maiores e já ordenadas até que toda a lista esteja completa.
+Durante a fase de combinação, o Merge Sort compara os elementos das sublistas e os coloca numa única lista ordenada.
+O Merge Sort é implementado de forma repetitiva desde a fase da divisão, comparação e junção de todas as sublistas.
+
+Função Quick Sort:
+Primeiro escolha um elemento da lista e damos-lhe o nome de pivo.
+O pivo é escolhido como o primeiro elemento da lista.
+Reorganiza os elementos da lista que todos os elementos menores que o pivo ficam à sua esquerda e todos os elementos maiores que o pivo ficam à direita.
+No final deste passo, o pivo está na posição certa.
+Repite todos os passos desde a criação do pivo, colocar menores à esquerda e maiores à direita até a lista ficar toda ordenada.
+O algoritmo para quando a lista possui zero ou um elemento.
