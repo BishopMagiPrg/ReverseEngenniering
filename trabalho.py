@@ -170,35 +170,110 @@ def contaQuickSort(l4):
 	return l4, tempo
 
 # Apresentação na tela os resultados
-print ("\n")
+def apresentacaoresult(l1,l2,l3,l4):
+    print ("\n")
+    print (sep2)
+    print ("Lista inicial aleatória:\n",lale,)
+    print (sep2)
+    print ("\n")
+    l1=contaInsertionSort(l1)
+    l1l=l1[0]
+    l1t=l1[1]
+    print ("Lista ordenada pelo método Insertion Sort:\n",l1l)
+    print ("O tempo que executa o método Insertion Sort:\n", l1t)
+    print (sep)
+    print ("Lista inicial para o método Bubble Sort: ",l2)
+    l2=contaBubbleSort(l2)
+    l2l=l2[0]
+    l2t=l2[1]
+    print ("Lista ordenada pelo método Bubble Sort:\n",l2l)
+    print ("O tempo que executa o método Bubble Sort:\n",l2t)
+    print (sep)
+    print ("Lista inicial para o método Merge Sort: ",l3)
+    l3=contaMergeSort(l3)
+    l3l=l3[0]
+    l3t=l3[1]
+    print ("Lista ordenada pelo método Merge Sort:\n",l3l)
+    print ("O tempo que executa o método Merge Sort:\n",l3t)
+    print (sep)
+    print ("Lista inicial para o método Quick Sort: ",l4)
+    l4=contaQuickSort(l4)
+    l4l=l4[0]
+    l4t=l4[1]
+    print ("Lista ordenada pelo método Quick Sort:\n",l4l)
+    print ("O tempo que executa o método Quick Sort:\n",l4t)
+    print (sep)
+    return l1t,l2t,l3t,l4t
+
+#Declaração de Variáveis para os Cálculos Minimos, Médios e Máximos
+l1tm=float('inf')
+l1tmx=float('-inf')
+l1total=0
+l2tm=float('inf')
+l2tmx=float('-inf')
+l2total=0
+l3tm=float('inf')
+l3tmx=float('-inf')
+l3total=0
+l4tm=float('inf')
+l4tmx=float('-inf')
+l4total=0
+
+#Este for faz gerar neste caso 200 listas aleatórias e vai fazer os cáculos
+for i in range (200):
+    #Cálculo Minimo, Médio e Máximo do Insertion Sort
+    result=apresentacaoresult(l1,l2,l3,l4)
+    l1total=l1total+result[0]
+    if result[0] < l1tm:
+        l1tm=result[0]
+    if result[0] > l1tmx:
+        l1tmx=result[0]
+    #Cálculo Minimo, Médio e Máximo do Bubble Sort
+    l2total=l2total+result[1]
+    if result[1] < l2tm:
+        l2tm=result[1]
+    if result[1] > l2tmx:
+        l2tmx=result[1]
+    #Cálculo Mínimo, Médio e Máximo do Merge Sort
+    l3total=l3total+result[2]
+    if result[2] < l2tm:
+        l3tm=result[2]
+    if result[2] > l3tmx:
+        l3tmx=result[2]
+    #Cálculo Mínimo, Médio e Máximo do Quick Sort
+    l4total=l4total+result[3]
+    if result[3] < l4tm:
+        l4tm=result[3]
+    if result[3] > l4tmx:
+        l4tmx=result[3]
+
+#Apresentação dos cálculos do método Insertion Sort
+print ("O tempo mínimo pelo método Insertion Sort, foi de : ", l1tm, " segundos.")
+l1media=l1total/200
+print ("O tempo médio do Insertion Sort foi : ", l1media)
+print ("O tempo máximo pelo método Insertion Sort, foi de : ", l1tmx, " segundos.")
 print (sep2)
-print ("Lista inicial aleatória:\n",lale,)
+
+#Apresentação dos cálculos do método Bubble Sort
+print ("O tempo mínimo pelo método Bubble Sort foi de : ", l2tm, " segundos.")
+l2media=l2total/200
+print ("O tempo médio do Bubble Sort foi : ", l2media)
+print ("O tempo máximo pelo método Bubble Sort foi de : ", l2tmx, " segundos.")
 print (sep2)
-print ("\n")
-l1=contaInsertionSort(l1)
-l1l=l1[0]
-l1t=l1[1]
-print ("Lista ordenada pelo método Insertion Sort:\n",l1l)
-print ("O tempo que executa o método Insertion Sort:\n", l1t)
-print (sep)
-#print ("Lista inicial para o método Bubble Sort: ",l2)
-l2=contaBubbleSort(l2)
-l2l=l2[0]
-l2t=l2[1]
-print ("Lista ordenada pelo método Bubble Sort:\n",l2l)
-print ("O tempo que executa o método Bubble Sort:\n",l2t)
-print (sep)
-#print ("Lista inicial para o método Merge Sort: ",l3)
-l3=contaMergeSort(l3)
-l3l=l3[0]
-l3t=l3[1]
-print ("Lista ordenada pelo método Merge Sort:\n",l3l)
-print ("O tempo que executa o método Merge Sort:\n",l3t)
-print (sep)
-#print ("Lista inicial para o método Quick Sort: ",l4)
-l4=contaQuickSort(l4)
-l4l=l4[0]
-l4t=l4[1]
-print ("Lista ordenada pelo método Quick Sort:\n",l4l)
-print ("O tempo que executa o método Quick Sort:\n",l4t)
-print (sep)
+
+#Apresentação dos cálculos do método Merge Sort
+print ("O tempo mínimo pelo método Merge Sort foi de : ", l3tm, " segundos.")
+l3media=l3total/200
+print ("O tempo médio do Merge Sort foi : ", l3media)
+print ("O tempo máximo pelo método Merge Sort foi de : ", l3tmx, " segundos.")
+print (sep2)
+
+#Apresentação dos cálculos do método Quick Sort
+print ("O tempo mínimo pelo método Quick Sort foi de : ", l4tm, " segundos.")
+l4media=l4total/200
+print ("O tempo médio do Quick Sort foi : ", l4media)
+print ("O tempo máximo pelo método Quick Sort foi de : ", l4tmx, " segundos.")
+print (sep2)
+
+
+
