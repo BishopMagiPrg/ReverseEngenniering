@@ -115,10 +115,6 @@ vmin = -100
 # valor máximo de cada elemento
 vmax = 100
 
-# Este conjunto vai gerar aleatóriamente uma lista e coloca para cada l esta mesma lista (l1, l2, l3 e l4)
-lale = ale(tmin, tmax, vmin, vmax)
-l1 = l2 = l3 = l4 = lale
-
 sep = "--------------------------------------------------------"
 sep2 = "########################################################"
 
@@ -169,36 +165,107 @@ def contaQuickSort(l4):
 	tempo = fim - inicio
 	return l4, tempo
 
+l1tempm=l2tempm=l3tempm=l4tempm=10
+l1tempmx=l2tempmx=l3tempmx=l4tempmx=l1total=l2total=l3total=l4total=0
+
 # Apresentação na tela os resultados
+for i in range (200):
+	# Este conjunto vai gerar aleatóriamente uma lista e coloca para cada l esta mesma lista (l1, l2, l3 e l4)
+	lale = ale(tmin, tmax, vmin, vmax)
+	l1 = l2 = l3 = l4 = lale
+
+	print ("\n")
+	print (sep2)
+	print ("Lista inicial aleatória:\n",lale,)
+	print (sep2)
+	print ("\n")
+	print ("Lista inicial para p método Insertion Sort:\n",l1)
+	l1=contaInsertionSort(l1)
+	l1l=l1[0]
+	l1t=l1[1]
+	print ("Lista l1: ",l1l) #####
+	print ("Tempo l1: ",l1t) #####
+	#Esta condição vai calcular o minimo e máximo do Insertion Sort
+	if l1t < l1tempm:
+		l1listam = l1l
+		l1tempm = l1t
+	if l1t > l1tempmx:
+		l1listax = l1l
+		l1tempmx = l1t
+	print ("Lista ordenada pelo método Insertion Sort:\n",l1l)
+	print ("O tempo que executa o método Insertion Sort:\n", l1t)
+	print (sep)
+	print ("Lista inicial para o método Bubble Sort: ",l2)
+	l2=contaBubbleSort(l2)
+	l2l=l2[0]
+	l2t=l2[1]
+	print ("Lista l2: ",l2l) #####
+	print ("Tempo l2: ",l2t) #####
+	#Esta condição vai calcular o minimo e máximo do Bubble Sort
+	if l2t < l2tempm:
+		l2listam = l2l
+		l2tempm = l2t
+	if l2t > l2tempmx:
+		l2listax = l2l
+		l2tempmx = l2t
+	print ("Lista ordenada pelo método Bubble Sort:\n",l2l)
+	print ("O tempo que executa o método Bubble Sort:\n",l2t)
+	print (sep)
+	print ("Lista inicial para o método Merge Sort: ",l3)
+	l3=contaMergeSort(l3)
+	l3l=l3[0]
+	l3t=l3[1]
+	#Esta condição vai calcular o minimo e máximo do Merge Sort
+	if l3t < l3tempm:
+		l3listam = l3l
+		l3tempm = l3t
+	if l3t > l3tempmx:
+		l3listax = l3l
+		l3tempmx = l3t
+	print ("Lista ordenada pelo método Merge Sort:\n",l3l)
+	print ("O tempo que executa o método Merge Sort:\n",l3t)
+	print (sep)
+	print ("Lista inicial para o método Quick Sort: ",l4)
+	l4=contaQuickSort(l4)
+	l4l=l4[0]
+	l4t=l4[1]
+	#Esta condição vai calcular o minimo e máximo do Quick Sort
+	if l4t < l4tempm:
+		l4listam = l4l
+		l4tempm = l4t
+	if l4t > l4tempmx:
+		l4listax = l4l
+		l4tempmx = l4t
+	print ("Lista ordenada pelo método Quick Sort:\n",l4l)
+	print ("O tempo que executa o método Quick Sort:\n",l4t)
+	print (sep)
+	#Somatório para a média
+	l1total=l1total+l1t
+	l2total=l2total+l2t
+	l3total=l3total+l3t
+	l4total=l4total+l4t
+
+#Divisão para a média
+l1total=l1total/200
+l2total=l2total/200
+l3total=l3total/200
+l4total=l4total/200
+
+#Cálculo das médias por métodos
 print ("\n")
 print (sep2)
-print ("Lista inicial aleatória:\n",lale,)
+print ("O tempo mais curto do método Insertion Sort foi de ",l1tempm," com a lista ",l1listam,".")
+print ("A média do método Insertion Sort é de :",l1total," segundos.")
+print ("O tempo que levou mais pelo método Insertion Sort foi de ",l1tempmx," com a lista ",l1listax,".")
 print (sep2)
-print ("\n")
-l1=contaInsertionSort(l1)
-l1l=l1[0]
-l1t=l1[1]
-print ("Lista ordenada pelo método Insertion Sort:\n",l1l)
-print ("O tempo que executa o método Insertion Sort:\n", l1t)
-print (sep)
-#print ("Lista inicial para o método Bubble Sort: ",l2)
-l2=contaBubbleSort(l2)
-l2l=l2[0]
-l2t=l2[1]
-print ("Lista ordenada pelo método Bubble Sort:\n",l2l)
-print ("O tempo que executa o método Bubble Sort:\n",l2t)
-print (sep)
-#print ("Lista inicial para o método Merge Sort: ",l3)
-l3=contaMergeSort(l3)
-l3l=l3[0]
-l3t=l3[1]
-print ("Lista ordenada pelo método Merge Sort:\n",l3l)
-print ("O tempo que executa o método Merge Sort:\n",l3t)
-print (sep)
-#print ("Lista inicial para o método Quick Sort: ",l4)
-l4=contaQuickSort(l4)
-l4l=l4[0]
-l4t=l4[1]
-print ("Lista ordenada pelo método Quick Sort:\n",l4l)
-print ("O tempo que executa o método Quick Sort:\n",l4t)
-print (sep)
+print ("O tempo mais curto do método Bubble Sort foi de ",l2tempm," com a lista ",l2listam,".")
+print ("A média do método Bubble Sort é de :",l2total," segundos.")
+print ("O tempo que levou mais tempo pelo método Bubble Sort foi de ",l2tempmx," com a lista ",l2listax,".")
+print (sep2)
+print ("O tempo mais curto do método Merge Sort foi de ",l3tempm," com a lista ",l3listam,".")
+print ("A média do método Merge Sort é de :",l3total," segundos.")
+print ("O tempo que levou mais tempo pelo método Merge Sort foi de ",l3tempmx," com a lista ",l3listax,".")
+print (sep2)
+print ("O tempo mais curto do método Quick Sort foi de ",l4tempm," com a lista ",l4listam,".")
+print ("A média do método Quick Sort é de :",l4total," segundos.")
+print ("O tempo que levou mais tempo pelo método Quick Sort foi de ",l4tempmx," com a lista ",l4listax,".")
